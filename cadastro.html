@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cadastro - TechStore</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    background:#f5f5f5;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+}
+
+.cadastro{
+
+    width:450px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+}
+
+.logo{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.logo img{
+
+    width:180px;
+
+}
+
+.logo h2{
+
+    color:#ff6b00;
+
+    margin-top:10px;
+
+}
+
+label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:bold;
+
+    color:#444;
+
+}
+
+input{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:18px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+}
+
+.termos{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:20px;
+
+}
+
+.termos input{
+
+    width:auto;
+
+    margin:0;
+
+}
+
+button{
+
+    width:100%;
+
+    padding:15px;
+
+    background:#ff6b00;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:#e65c00;
+
+}
+
+.login{
+
+    text-align:center;
+
+    margin-top:25px;
+
+}
+
+.login a{
+
+    color:#ff6b00;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.login a:hover{
+
+    text-decoration:underline;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="cadastro">
+
+<div class="logo">
+
+<img src="logo.png" alt="TechStore">
+
+<h2>Criar Conta</h2>
+
+</div>
+
+<form id="cadastroForm">
+
+<label>Nome Completo</label>
+
+<input
+type="text"
+id="nome"
+required>
+
+<label>E-mail</label>
+
+<input
+type="email"
+id="email"
+required>
+
+<label>Telefone</label>
+
+<input
+type="tel"
+id="telefone"
+required>
+
+<label>Senha</label>
+
+<input
+type="password"
+id="senha"
+required>
+
+<label>Confirmar Senha</label>
+
+<input
+type="password"
+id="confirmarSenha"
+required>
+
+<div class="termos">
+
+<input
+type="checkbox"
+id="termos"
+required>
+
+<label for="termos">
+Aceito os termos de uso
+</label>
+
+</div>
+
+<button type="submit">
+
+Criar Conta
+
+</button>
+
+</form>
+
+<div class="login">
+
+<p>Já possui uma conta?</p>
+
+<br>
+
+<a href="login.html">
+
+Fazer Login
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+const formulario = document.getElementById("cadastroForm");
+
+formulario.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const senha = document.getElementById("senha").value;
+    const confirmar = document.getElementById("confirmarSenha").value;
+
+    if(senha !== confirmar){
+
+        alert("As senhas não coincidem.");
+
+        return;
+
+    }
+
+    alert("Conta criada com sucesso!");
+
+    window.location.href = "login.html";
+
+});
+
+</script>
+
+</body>
+
+</html>
