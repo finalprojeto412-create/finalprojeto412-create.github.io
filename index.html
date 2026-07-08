@@ -51,19 +51,16 @@ nav a:hover{
 /* BANNER */
 
 .banner{
-    background:linear-gradient(to right,#ff6b00,#ff9a3d);
-    color:white;
-    text-align:center;
-    padding:70px 20px;
+    width:100%;
+    padding:0;
+    margin:0;
+    overflow:hidden;
 }
 
-.banner h2{
-    font-size:40px;
-    margin-bottom:10px;
-}
-
-.banner p{
-    font-size:18px;
+.banner img{
+    width:100%;
+    height:auto;
+    display:block;
 }
 
 /* PRODUTOS */
@@ -372,11 +369,7 @@ html{
 </header>
 
 <section class="banner">
-
-<h2>Bem-vindo à TechStore</h2>
-
-<p>Os melhores produtos de informática.</p>
-
+    <img src="banner-techstore.png" alt="Banner TechStore">
 </section>
 
 <main>
@@ -396,7 +389,7 @@ html{
 
 <h4>R$ 3.799,00</h4>
 
-<button>Solicitar Orçamento</button>
+<button class="btn-orcamento">Solicitar Orçamento</button>
 
 </div>
 
@@ -412,7 +405,7 @@ html{
 
 <h4>R$ 149,90</h4>
 
-<button>Solicitar Orçamento</button>
+<button class="btn-orcamento">Solicitar Orçamento</button>
 
 </div>
 
@@ -428,7 +421,7 @@ html{
 
 <h4>R$ 289,90</h4>
 
-<button>Solicitar Orçamento</button>
+<button class="btn-orcamento">Solicitar Orçamento</button>
 
 </div>
 
@@ -444,8 +437,7 @@ html{
 
 <h4>R$ 899,00</h4>
 
-<button>Solicitar Orçamento</button>
-
+<button class="btn-orcamento">Solicitar Orçamento</button>
 </div>
 
 <div class="card">
@@ -460,7 +452,7 @@ html{
 
 <h4>R$ 329,00</h4>
 
-<button>Solicitar Orçamento</button>
+<button class="btn-orcamento">Solicitar Orçamento</button>
 
 </div>
 
@@ -476,7 +468,7 @@ html{
 
 <h4>R$ 1.299,00</h4>
 
-<button>Solicitar Orçamento</button>
+<button class="btn-orcamento">Solicitar Orçamento</button>
 </a>
 
 </div>
@@ -492,7 +484,7 @@ html{
 
 <span class="fechar">&times;</span>
 
-<h2>Solicitação de Orçamento</h2>
+<button class="btn-orcamento">Solicitar Orçamento</button>
 
 <form id="formulario">
 
