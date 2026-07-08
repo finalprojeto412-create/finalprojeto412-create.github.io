@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechStore - Catálogo de Produtos</title>
+
+<style>
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+    color:#333;
+}
+
+/* HEADER */
+
+header{
+    background:#0d6efd;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+    flex-wrap:wrap;
+}
+
+header h1{
+    font-size:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#ffd43b;
+}
+
+/* BANNER */
+
+.banner{
+    background:linear-gradient(to right,#0d6efd,#3d8bfd);
+    color:white;
+    text-align:center;
+    padding:70px 20px;
+}
+
+.banner h2{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.banner p{
+    font-size:18px;
+}
+
+/* PRODUTOS */
+
+.produtos{
+
+    width:90%;
+    margin:40px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:10px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+    overflow:hidden;
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.card img{
+
+    width:90%;
+    height:400px;
+    object-fit:cover;
+
+}
+
+.card h3{
+
+    margin:15px;
+
+}
+
+.card p{
+
+    margin:0 15px;
+    color:#666;
+
+}
+
+.categoria{
+
+    display:block;
+    margin:15px;
+    color:#0d6efd;
+    font-weight:bold;
+
+}
+
+.card h4{
+
+    margin:15px;
+    color:#198754;
+    font-size:22px;
+
+}
+
+.card button{
+
+    width:90%;
+    margin:15px;
+    padding:12px;
+
+    border:none;
+    border-radius:8px;
+
+    background:#0d6efd;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+.card button:hover{
+
+    background:#084298;
+
+}
+
+/* MODAL */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.6);
+
+    justify-content:center;
+    align-items:center;
+
+}
+
+.modal-content{
+
+    background:white;
+
+    width:500px;
+
+    max-width:95%;
+
+    padding:30px;
+
+    border-radius:10px;
+
+    position:relative;
+
+}
+
+.fechar{
+
+    position:absolute;
+
+    right:15px;
+
+    top:10px;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+}
+
+form{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+form input,
+form textarea{
+
+    padding:12px;
+
+    margin-bottom:15px;
+
+    border:1px solid #ccc;
+
+    border-radius:30px;
+
+    font-size:16px;
+
+}
+
+form textarea{
+
+    resize:none;
+
+}
+
+form button{
+
+    background:#198754;
+
+    color:white;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+}
+
+form button:hover{
+
+    background:#146c43;
+
+}
+
+/* FOOTER */
+
+footer{
+
+    background:#212529;
+
+    color:white;
+
+    text-align:center;
+
+    padding:20px;
+
+    margin-top:40px;
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+header{
+
+flex-direction:column;
+
+}
+
+nav{
+
+margin-top:15px;
+
+}
+
+.banner h2{
+
+font-size:30px;
+
+}
+
+}
+.btn-banner{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    background:#FFD43B;
+
+    color:#000;
+
+    padding:15px 30px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.btn-banner:hover{
+
+    background:white;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🛒 TechStore</h1>
+
+<nav>
+
+<a href="index.html">🏠 Início</a>
+
+<a href="#produtos">💻 Produtos</a>
+
+<a href="#sobre">🏢 Sobre</a>
+
+<a href="#contato">📞 Contato</a>
+
+<a href="pedidos.html">📋 Pedidos</a>
+
+</nav>
+
+</header>
+
+<section class="banner">
+
+<h2>Bem-vindo à TechStore</h2>
+
+<p>Os melhores produtos de informática.</p>
+
+</section>
+
+<main>
+
+
+<div class="produtos" id="produtos">
+
+<div class="card">
+
+<img src="https://cdn.awsli.com.br/600x450/2179/2179851/produto/246636956/notebook_dell_14-3468__5_-removebg-preview-ql7xuh6oi3.png" alt="Notebook">
+
+<h3>Notebook Dell Inspiron</h3>
+
+<p>Intel Core i5 • 16GB RAM • SSD 512GB</p>
+
+<span class="categoria">Categoria: Notebook</span>
+
+<h4>R$ 3.799,00</h4>
+
+<button>Solicitar Orçamento</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTySZHfGZL57WpWr46jQhk9EHwCyzgbYjGzGURy9djFVw&s=10" alt="Mouse">
+
+<h3>Mouse Gamer RGB</h3>
+
+<p>7200 DPI com iluminação RGB.</p>
+
+<span class="categoria">Categoria: Acessórios</span>
+
+<h4>R$ 149,90</h4>
+
+<button>Solicitar Orçamento</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaDgejResmDc5ysobCTFqCzzTGCIXmfy9vG3nBCfHj9w&s=10" alt="Teclado">
+
+<h3>Teclado Mecânico</h3>
+
+<p>Switch Blue RGB.</p>
+
+<span class="categoria">Categoria: Acessórios</span>
+
+<h4>R$ 289,90</h4>
+
+<button>Solicitar Orçamento</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQdsANVl9L8uwtWRwuPiVOlukHCHIdZI6RROQjI8LEbGe4fwki16z52My2tlmQ5bX77jw5H05Pu7WSLfeoaDubi2eRzXKyPCNYTv0qOFug&usqp=CAc" alt="Monitor">
+
+<h3>Monitor LG 24"</h3>
+
+<p>Full HD IPS.</p>
+
+<span class="categoria">Categoria: Monitor</span>
+
+<h4>R$ 899,00</h4>
+
+<button>Solicitar Orçamento</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRiOzCX-3nTYeZH2R5beYNjeIMDJJ5lAqWfwvYT9k2XdlxPZq4pMuxreo4hxcvUKWPCJKQmXjdloRKEeMVebu8pz887oj0IQVt5QLfCyb4yORZ-PhMiQg_A-EHh05XRzgKFkGR7Bw&usqp=CAc" alt="Headset">
+
+<h3>Headset Gamer</h3>
+
+<p>Som Surround 7.1.</p>
+
+<span class="categoria">Categoria: Áudio</span>
+
+<h4>R$ 329,00</h4>
+
+<button>Solicitar Orçamento</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0OqddOKnhgyBcu94Zs5dzXZoKsp92FN4cZ45HjbhOLQ&s=10" alt="Impressora">
+
+<h3>Impressora Epson EcoTank</h3>
+
+<p>Multifuncional com tanque de tinta.</p>
+
+<span class="categoria">Categoria: Impressora</span>
+
+<h4>R$ 1.299,00</h4>
+
+<button>Solicitar Orçamento</button>
+
+</div>
+
+</div>
+
+</main>
+
+
+<div class="modal" id="modal">
+
+<div class="modal-content">
+
+<span class="fechar">&times;</span>
+
+<h2>Solicitação de Orçamento</h2>
+
+<form id="formulario">
+
+    <input
+        type="text"
+        id="nome"
+        placeholder="Nome"
+        required
+    >
+
+    <input
+        type="email"
+        id="email"
+        placeholder="E-mail"
+        required
+    >
+
+    <input
+        type="tel"
+        id="telefone"
+        placeholder="Telefone"
+        required
+    >
+
+    <input
+        type="text"
+        id="produto"
+        placeholder="Produto de interesse"
+        readonly
+        required
+    >
+
+    <input
+        type="number"
+        id="quantidade"
+        placeholder="Quantidade"
+        min="1"
+        required
+    >
+
+    <textarea
+        id="mensagem"
+        rows="5"
+        placeholder="Mensagem"
+        required
+    ></textarea>
+
+    <button type="submit">
+        Enviar Solicitação
+    </button>
+
+</form>
+</div>
+
+</div>
+
+<footer>
+
+<p>© 2026 TechStore - Todos os direitos reservados.</p>
+
+</footer>
+
+</body>
+</html>
