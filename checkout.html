@@ -3,19 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagamento</title>
+    <title>Checkout - TechStore</title>
 </head>
 <body>
 
-    <h1>Pagamento</h1>
+    <h1>🛒 Finalizar Compra</h1>
+
+    <hr>
 
     <h2>Resumo do Pedido</h2>
 
-    <p>Produto: Notebook Dell Inspiron</p>
+    <p><strong>Produto:</strong> Notebook Dell Inspiron</p>
 
-    <p>Quantidade: 1</p>
+    <p><strong>Quantidade:</strong> 1</p>
 
-    <p>Total: R$ 3.799,00</p>
+    <p><strong>Total:</strong> R$ 3.799,00</p>
+
+    <hr>
+
+    <h2>Forma de Pagamento</h2>
+
+    <input type="radio" name="pagamento" id="pix">
+    <label for="pix">PIX</label>
+
+    <br><br>
+
+    <input type="radio" name="pagamento" id="boleto">
+    <label for="boleto">Boleto Bancário</label>
+
+    <br><br>
+
+    <input type="radio" name="pagamento" id="cartao">
+    <label for="cartao">Cartão de Crédito</label>
+
+    <br><br>
+
+    <button>Finalizar Compra</button>
 
 </body>
 </html>
