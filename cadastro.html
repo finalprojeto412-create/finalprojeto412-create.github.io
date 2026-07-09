@@ -294,6 +294,13 @@ const { error } = await supabase
     }
   ]);
 
+console.log("Dados:", {
+    nome,
+    email,
+    telefone,
+    senha
+});
+
 console.log("Erro retornado:", error);
 
 if (error) {
