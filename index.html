@@ -346,6 +346,74 @@ font-size:30px;
 html{
     scroll-behavior:smooth;
 }
+    .usuario-menu{
+
+    position:relative;
+    display:inline-block;
+    margin-left:20px;
+
+}
+
+#btnUsuario{
+
+    background:none;
+    border:none;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+
+}
+
+.menu-dropdown{
+
+    display:none;
+
+    position:absolute;
+
+    right:0;
+
+    top:40px;
+
+    background:white;
+
+    min-width:220px;
+
+    border-radius:10px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.25);
+
+    overflow:hidden;
+
+    z-index:999;
+
+}
+
+.menu-dropdown a{
+
+    display:block;
+
+    padding:14px;
+
+    color:#333;
+
+    text-decoration:none;
+
+}
+
+.menu-dropdown a:hover{
+
+    background:#f5f5f5;
+
+}
+
+.menu-dropdown hr{
+
+    border:none;
+
+    border-top:1px solid #ddd;
+
+}
 
 </style>
 
@@ -369,9 +437,31 @@ html{
 
 <a href="pedidos.html">📋 Pedidos</a>
 
-<a href="minha-conta.html">👤 Minha Conta</a>
+<div class="usuario-menu">
 
-</nav>
+    <button id="btnUsuario">
+        👤 Minha Conta
+    </button>
+
+    <div class="menu-dropdown" id="menuUsuario">
+
+        <a href="perfil.html">👤 Meu Perfil</a>
+
+        <a href="pedidos.html">📦 Meus Pedidos</a>
+
+        <a href="#">❤ Favoritos</a>
+
+        <a href="#">💳 Pagamentos</a>
+
+        <a href="#">📍 Endereços</a>
+
+        <a href="#">⚙ Configurações</a>
+
+        <hr>
+
+        <a href="#" id="sairConta">🚪 Sair</a>
+
+    </div>
 
 </header>
 
@@ -614,6 +704,74 @@ window.addEventListener("click", (e)=>{
 
 // Enviar formulário (por enquanto só testa)
 formulario.addEventListener("submit", function(e){
+
+    //==============================
+// MENU DO USUÁRIO
+//==============================
+
+const btnUsuario = document.getElementById("btnUsuario");
+
+const menuUsuario = document.getElementById("menuUsuario");
+
+btnUsuario.addEventListener("click",()=>{
+
+    if(menuUsuario.style.display=="block"){
+
+        menuUsuario.style.display="none";
+
+    }else{
+
+        menuUsuario.style.display="block";
+
+    }
+
+});
+
+window.addEventListener("click",(e)=>{
+
+    if(!e.target.closest(".usuario-menu")){
+
+        menuUsuario.style.display="none";
+
+    }
+
+});
+
+//==============================
+// VERIFICA LOGIN
+//==============================
+
+const usuarioLogado = localStorage.getItem("usuarioLogado");
+
+if(usuarioLogado=="true"){
+
+    const nome = localStorage.getItem("nome");
+
+    btnUsuario.innerHTML="👋 Olá, "+nome.split(" ")[0];
+
+}else{
+
+    btnUsuario.innerHTML="👤 Minha Conta";
+
+    btnUsuario.onclick=function(){
+
+        window.location.href="login-opcao.html";
+
+    }
+
+}
+
+//==============================
+// SAIR
+//==============================
+
+document.getElementById("sairConta").addEventListener("click",()=>{
+
+    localStorage.removeItem("usuarioLogado");
+
+    window.location.reload();
+
+});
 
     e.preventDefault();
 
