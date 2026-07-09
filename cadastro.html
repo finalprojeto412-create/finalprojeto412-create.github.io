@@ -256,10 +256,14 @@ Fazer Login
 </div>
 
 </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+    
 
 <script>
 
-const formulario = document.getElementById("cadastroForm");
+const formulario = document.getElementById("cadastroForm")
 
 formulario.addEventListener("submit", async function(e){
 
@@ -298,14 +302,10 @@ if (error) {
     alert("Conta criada com sucesso!");
 
     window.location.href = "login.html";
+
+}
 });
 
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase.js"></script>
-    
-    <script>
-    // seu código de cadastro aqui
 </script>
 
 </body>
