@@ -380,6 +380,9 @@ html{
 <a href="pedidos.html">📋 Pedidos</a>
 
 <a href="#" id="btnConta">👤 Minha Conta</a>
+
+</nav>
+
 </header>
 
 <section class="banner">
@@ -498,7 +501,7 @@ html{
 
 <span class="fechar">&times;</span>
 
-<button class="btn-orcamento">Solicitar Orçamento</button>
+<h2>Solicitação de Orçamento</h2>
 
 <form id="formulario">
 
@@ -589,7 +592,7 @@ document.querySelectorAll(".btn-orcamento").forEach(botao => {
     botao.addEventListener("click", () => {
 
         // Pega o nome do produto
-        const produto = botao.parentElement.querySelector("h3").textContent;
+       const produto = botao.closest(".card").querySelector("h3").textContent;
 
         // Coloca no formulário
         campoProduto.value = produto;
@@ -621,22 +624,6 @@ window.addEventListener("click", (e)=>{
 
 // Enviar formulário (por enquanto só testa)
 formulario.addEventListener("submit", function(e){
-
-
-
-}
-
-//==============================
-// SAIR
-//==============================
-
-document.getElementById("sairConta").addEventListener("click",()=>{
-
-    localStorage.removeItem("usuarioLogado");
-
-    window.location.reload();
-
-});
 
     e.preventDefault();
 
