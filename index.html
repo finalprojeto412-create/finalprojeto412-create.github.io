@@ -488,7 +488,6 @@ html{
 <h4>R$ 1.299,00</h4>
 
 <button class="btn-orcamento">Solicitar Orçamento</button>
-</a>
 
 </div>
 
@@ -652,20 +651,6 @@ if(localStorage.getItem("usuarioLogado") === "true"){
     btnConta.innerHTML = "👤 Minha Conta";
     btnConta.href = "login-opcao.html";
 
-}
-    const btnConta = document.getElementById("btnConta");
-
-if(localStorage.getItem("usuarioLogado") === "true"){
-
-    btnConta.innerHTML = "👤 " + localStorage.getItem("nome");
-
-    btnConta.href = "perfil.html";
-
-}else{
-
-    btnConta.innerHTML = "👤 Minha Conta";
-
-    btnConta.href = "login-opcao.html";
 
 }
 </script>
