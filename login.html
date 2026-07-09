@@ -256,21 +256,28 @@ login.addEventListener("submit", function(e){
     const email = document.querySelector("input[type=email]").value;
     const senha = document.querySelector("input[type=password]").value;
 
-    if(email === "" || senha === ""){
+    // Dados cadastrados
+    const emailSalvo = localStorage.getItem("email");
+    const senhaSalva = localStorage.getItem("senha");
+    const nomeSalvo = localStorage.getItem("nome");
 
-        alert("Preencha todos os campos!");
+    if(email === emailSalvo && senha === senhaSalva){
 
-        return;
+        alert("Bem-vindo à TechStore, " + nomeSalvo + "!");
+
+        localStorage.setItem("usuarioLogado", "true");
+        localStorage.setItem("nomeUsuario", nomeSalvo);
+
+        window.location.href = "index.html";
+
+    }else{
+
+        alert("E-mail ou senha incorretos!");
 
     }
 
-    alert("Login realizado com sucesso!");
-
-    localStorage.setItem("usuarioLogado", "true");
-    window.location.href = "index.html";
 });
 
 </script>
-
 </body>
 </html>
