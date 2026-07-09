@@ -634,6 +634,23 @@ formulario.addEventListener("submit", function(e){
     modal.style.display = "none";
 
 });
+    //==============================
+// BOTÃO MINHA CONTA
+//==============================
+
+const btnConta = document.getElementById("btnConta");
+
+if(localStorage.getItem("usuarioLogado") === "true"){
+
+    btnConta.innerHTML = "👤 " + localStorage.getItem("nome");
+    btnConta.href = "perfil.html";
+
+}else{
+
+    btnConta.innerHTML = "👤 Minha Conta";
+    btnConta.href = "login-opcao.html";
+
+}
     const btnConta = document.getElementById("btnConta");
 
 if(localStorage.getItem("usuarioLogado") === "true"){
