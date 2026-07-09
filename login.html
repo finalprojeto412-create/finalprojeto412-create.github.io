@@ -187,8 +187,7 @@ button:hover{
 
 <img src="logo.png" alt="TechStore">
 
-<h2>Painel Administrativo</h2>
-
+<h2>Login do Usuário</h2>
 </div>
 
 <form id="loginForm">
@@ -253,8 +252,14 @@ login.addEventListener("submit", function(e){
 
     e.preventDefault();
 
-  const email = document.querySelector("input[type=email]").value;
+const email = document.querySelector("input[type=email]").value;
 const senha = document.querySelector("input[type=password]").value;
+    
+console.log("Digitado:", email);
+console.log("Salvo:", localStorage.getItem("email"));
+
+console.log("Senha digitada:", senha);
+console.log("Senha salva:", localStorage.getItem("senha"));
 
 if(
 
