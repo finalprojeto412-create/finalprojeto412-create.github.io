@@ -281,8 +281,9 @@ formulario.addEventListener("submit", async function(e){
         return;
 
     }
+console.log("Cheguei aqui");
 
-  const { error } = await supabase
+const { error } = await supabase
   .from("usuarios")
   .insert([
     {
@@ -292,6 +293,8 @@ formulario.addEventListener("submit", async function(e){
       senha: senha
     }
   ]);
+
+console.log("Erro retornado:", error);
 
 if (error) {
 
@@ -305,7 +308,6 @@ if (error) {
 
 }
 });
-
 </script>
 
 </body>
