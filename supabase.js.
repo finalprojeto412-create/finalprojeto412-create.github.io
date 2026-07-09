@@ -6,3 +6,6 @@ const supabase = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_ANON_KEY
 );
+// TESTE
+console.log("Supabase conectado!");
+console.log(supabase);
