@@ -253,29 +253,28 @@ login.addEventListener("submit", function(e){
 
     e.preventDefault();
 
-    const email = document.querySelector("input[type=email]").value;
-    const senha = document.querySelector("input[type=password]").value;
+  const email = document.querySelector("input[type=email]").value;
+const senha = document.querySelector("input[type=password]").value;
 
-    // Dados cadastrados
-    const emailSalvo = localStorage.getItem("email");
-    const senhaSalva = localStorage.getItem("senha");
-    const nomeSalvo = localStorage.getItem("nome");
+if(
 
-    if(email === emailSalvo && senha === senhaSalva){
+email === localStorage.getItem("email") &&
 
-        alert("Bem-vindo à TechStore, " + nomeSalvo + "!");
+senha === localStorage.getItem("senha")
 
-        localStorage.setItem("usuarioLogado", "true");
-        localStorage.setItem("nomeUsuario", nomeSalvo);
+){
 
-        window.location.href = "index.html";
+    localStorage.setItem("usuarioLogado","true");
 
-    }else{
+    alert("Bem-vindo!");
 
-        alert("E-mail ou senha incorretos!");
+    window.location.href="index.html";
 
-    }
+}else{
 
+    alert("E-mail ou senha incorretos.");
+
+}
 });
 
 </script>
