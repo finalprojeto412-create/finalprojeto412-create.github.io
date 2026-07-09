@@ -278,15 +278,11 @@ formulario.addEventListener("submit", function(e){
 
     }
 
-    // Salva os dados do usuário
-const nome = document.getElementById("nome").value;
-const email = document.getElementById("email").value;
-const telefone = document.getElementById("telefone").value;
-
-localStorage.setItem("nome", nome);
-localStorage.setItem("email", email);
-localStorage.setItem("telefone", telefone);
-localStorage.setItem("senha", senha);
+    // Salva os dados
+    localStorage.setItem("nome", nome);
+    localStorage.setItem("email", email);
+    localStorage.setItem("telefone", telefone);
+    localStorage.setItem("senha", senha);
 
     alert("Conta criada com sucesso!");
 
