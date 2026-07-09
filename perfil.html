@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Minha Conta - TechStore</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+header{
+
+    background:#ff6b00;
+    color:white;
+    padding:20px 40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+header a{
+
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+
+}
+
+.container{
+
+    width:95%;
+    max-width:1200px;
+    margin:40px auto;
+
+    display:flex;
+    gap:30px;
+
+}
+
+.menu{
+
+    width:280px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    overflow:hidden;
+
+}
+
+.topo{
+
+    background:#ff6b00;
+    color:white;
+    padding:30px;
+    text-align:center;
+
+}
+
+.topo img{
+
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:white;
+    padding:10px;
+    margin-bottom:15px;
+
+}
+
+.topo h2{
+
+    font-size:22px;
+
+}
+
+.topo p{
+
+    margin-top:8px;
+
+}
+
+.menu ul{
+
+    list-style:none;
+
+}
+
+.menu li{
+
+    border-bottom:1px solid #eee;
+
+}
+
+.menu a{
+
+    display:block;
+    padding:18px;
+    color:#333;
+    text-decoration:none;
+    transition:.3s;
+
+}
+
+.menu a:hover{
+
+    background:#fff3ea;
+    color:#ff6b00;
+
+}
+
+.conteudo{
+
+    flex:1;
+    background:white;
+    border-radius:12px;
+    padding:40px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+.conteudo h1{
+
+    color:#ff6b00;
+    margin-bottom:30px;
+
+}
+
+.info{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+
+}
+
+.card{
+
+    background:#fafafa;
+    padding:20px;
+    border-radius:10px;
+    border-left:5px solid #ff6b00;
+
+}
+
+.card strong{
+
+    display:block;
+    margin-bottom:8px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h2>TechStore</h2>
+
+<a href="index.html">🏠 Voltar para Loja</a>
+
+</header>
+
+<div class="container">
+
+<div class="menu">
+
+<div class="topo">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+
+<h2 id="nomeUsuario"></h2>
+
+<p>Cliente TechStore</p>
+
+</div>
+
+<ul>
+
+<li><a href="#">👤 Meu Perfil</a></li>
+
+<li><a href="#">📦 Meus Pedidos</a></li>
+
+<li><a href="#">❤️ Favoritos</a></li>
+
+<li><a href="#">📍 Endereços</a></li>
+
+<li><a href="#">💳 Pagamentos</a></li>
+
+<li><a href="#">⚙ Configurações</a></li>
+
+<li><a href="#" id="sair">🚪 Sair</a></li>
+
+</ul>
+
+</div>
+
+<div class="conteudo">
+
+<h1>Meus Dados</h1>
+
+<div class="info">
+
+<div class="card">
+
+<strong>Nome</strong>
+
+<p id="nome"></p>
+
+</div>
+
+<div class="card">
+
+<strong>E-mail</strong>
+
+<p id="email"></p>
+
+</div>
+
+<div class="card">
+
+<strong>Telefone</strong>
+
+<p id="telefone"></p>
+
+</div>
+
+<div class="card">
+
+<strong>Status</strong>
+
+<p>Cliente Ativo</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+document.getElementById("nomeUsuario").textContent =
+localStorage.getItem("nome");
+
+document.getElementById("nome").textContent =
+localStorage.getItem("nome");
+
+document.getElementById("email").textContent =
+localStorage.getItem("email");
+
+document.getElementById("telefone").textContent =
+localStorage.getItem("telefone");
+
+document.getElementById("sair").addEventListener("click",function(){
+
+localStorage.removeItem("usuarioLogado");
+
+window.location.href="index.html";
+
+});
+
+</script>
+
+</body>
+</html>
