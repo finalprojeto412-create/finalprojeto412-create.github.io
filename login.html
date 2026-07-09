@@ -244,46 +244,49 @@ Criar Conta
 </div>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+
 <script>
 
 const login = document.getElementById("loginForm");
 
-login.addEventListener("submit", function(e){
+login.addEventListener("submit", async function(e){
 
     e.preventDefault();
 
-const email = document.querySelector("input[type=email]").value;
-const senha = document.querySelector("input[type=password]").value;
-    
-console.log("Digitado:", email);
-console.log("Salvo:", localStorage.getItem("email"));
+    const email = document.querySelector("input[type=email]").value;
+    const senha = document.querySelector("input[type=password]").value;
 
-console.log("Senha digitada:", senha);
-console.log("Senha salva:", localStorage.getItem("senha"));
+    const { data, error } = await supabase
+        .from("usuarios")
+        .select("*")
+        .eq("email", email)
+        .eq("senha", senha)
+        .single();
 
-if(
+    console.log("Usuário encontrado:", data);
+    console.log("Erro:", error);
 
-email === localStorage.getItem("email") &&
+    if(error || !data){
 
-senha === localStorage.getItem("senha")
+        alert("E-mail ou senha incorretos.");
+        return;
 
-){
+    }
 
-    localStorage.setItem("usuarioLogado","true");
+    localStorage.setItem("usuarioLogado", "true");
+    localStorage.setItem("nome", data.nome);
+    localStorage.setItem("email", data.email);
 
-    alert("Bem-vindo!");
+    alert("Bem-vindo, " + data.nome + "!");
 
-    window.location.href="index.html";
+    window.location.href = "index.html";
 
-}else{
-
-    alert("E-mail ou senha incorretos.");
-
-}
 });
 
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase.js"></script>
+
 </body>
 </html>
