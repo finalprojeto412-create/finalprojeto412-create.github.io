@@ -379,8 +379,7 @@ html{
 
 <a href="pedidos.html">📋 Pedidos</a>
 
-<a href="minha-conta.html">👤 Minha Conta</a>
-
+<a href="#" id="btnConta">👤 Minha Conta</a>
 </header>
 
 <section class="banner">
@@ -648,6 +647,21 @@ document.getElementById("sairConta").addEventListener("click",()=>{
     modal.style.display = "none";
 
 });
+    const btnConta = document.getElementById("btnConta");
+
+if(localStorage.getItem("usuarioLogado") === "true"){
+
+    btnConta.innerHTML = "👤 " + localStorage.getItem("nome");
+
+    btnConta.href = "perfil.html";
+
+}else{
+
+    btnConta.innerHTML = "👤 Minha Conta";
+
+    btnConta.href = "login-opcao.html";
+
+}
 </script>
 
 </body>
