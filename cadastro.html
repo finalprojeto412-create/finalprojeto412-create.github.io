@@ -261,7 +261,7 @@ Fazer Login
 
 const formulario = document.getElementById("cadastroForm");
 
-formulario.addEventListener("submit", function(e){
+formulario.addEventListener("submit", async function(e){
 
     e.preventDefault();
 
@@ -278,16 +278,26 @@ formulario.addEventListener("submit", function(e){
 
     }
 
-    // Salva os dados
-    localStorage.setItem("nome", nome);
-    localStorage.setItem("email", email);
-    localStorage.setItem("telefone", telefone);
-    localStorage.setItem("senha", senha);
+  const { error } = await supabase
+  .from("usuarios")
+  .insert([
+    {
+      nome: nome,
+      email: email,
+      telefone: telefone,
+      senha: senha
+    }
+  ]);
+
+if (error) {
+
+    alert(error.message);
+
+} else {
 
     alert("Conta criada com sucesso!");
 
     window.location.href = "login.html";
-
 });
 
 </script>
