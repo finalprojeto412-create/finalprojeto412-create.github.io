@@ -159,29 +159,7 @@ button:hover{
 
 <h2 class="titulo">📦 Meus Pedidos</h2>
 
-<div class="pedido">
-
-<span class="status aguardando">
-Aguardando Pagamento
-</span>
-
-<h3>Notebook Dell Inspiron</h3>
-
-<p class="info"><strong>Pedido:</strong> #1001</p>
-
-<p class="info"><strong>Quantidade:</strong> 1</p>
-
-<p class="info"><strong>Valor:</strong> R$ 3.799,00</p>
-
-<p class="info"><strong>Data:</strong> 08/07/2026</p>
-
-<div class="botoes">
-
-<button>Ver Pedido</button>
-
-<a href="checkout.html">
-    <button>Pagar Agora</button>
-</a>
+<div id="listaPedidos"></div>
 
 </div>
 
@@ -190,6 +168,68 @@ Aguardando Pagamento
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase.js"></script>
+
+    <script>
+
+async function carregarPedidos(){
+
+    const { data, error } = await supabaseClient
+    .from("pedidos")
+    .select("*")
+    .order("id", { ascending:false });
+
+    if(error){
+
+        console.log(error);
+        return;
+
+    }
+
+    const lista = document.getElementById("listaPedidos");
+
+    lista.innerHTML = "";
+
+    data.forEach((pedido)=>{
+
+        lista.innerHTML += `
+
+        <div class="pedido">
+
+            <span class="status aguardando">
+            Aguardando Pagamento
+            </span>
+
+            <h3>${pedido.produto}</h3>
+
+            <p class="info">
+            <strong>Quantidade:</strong> ${pedido.quantidade}
+            </p>
+
+            <p class="info">
+            <strong>Mensagem:</strong> ${pedido.mensagem}
+            </p>
+
+            <div class="botoes">
+
+                <button>Ver Pedido</button>
+
+                <a href="checkout.html">
+                    <button>Pagar Agora</button>
+                </a>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+carregarPedidos();
+
+</script>
 
 </body>
 
