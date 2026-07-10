@@ -135,6 +135,18 @@ button:hover{
     background:#e65c00;
 
 }
+    .btnExcluir{
+
+    background:#dc3545;
+    width:60px;
+
+}
+
+.btnExcluir:hover{
+
+    background:#bb2d3b;
+
+}
     h3{
 
     font-size:32px;
@@ -211,13 +223,25 @@ async function carregarPedidos(){
 
             <div class="botoes">
 
-                <button>Ver Pedido</button>
+    <button onclick="verPedido('${pedido.id}')">
+         Ver Pedido
+    </button>
 
-                <a href="checkout.html">
-                    <button>Pagar Agora</button>
-                </a>
+    <a href="checkout.html">
+        <button>
+            💳 Pagar Agora
+        </button>
+    </a>
 
-            </div>
+    <button
+        class="btnExcluir"
+        onclick="cancelarPedido('${pedido.id}')">
+
+        🗑
+
+    </button>
+
+</div>
 
         </div>
 
@@ -227,10 +251,59 @@ async function carregarPedidos(){
 
 }
 
+async function cancelarPedido(id){
+
+    const confirmar = confirm("Deseja realmente cancelar este pedido?");
+
+    if(!confirmar) return;
+
+    const { error } = await supabaseClient
+        .from("pedidos")
+        .delete()
+        .eq("id", id);
+
+    if(error){
+
+        alert(error.message);
+        return;
+
+    }
+
+    alert("Pedido cancelado!");
+
+    carregarPedidos();
+
+}
+
+async function verPedido(id){
+
+    const { data, error } = await supabaseClient
+        .from("pedidos")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+    if(error){
+
+        alert(error.message);
+        return;
+
+    }
+
+    alert(
+`Produto: ${data.produto}
+
+Quantidade: ${data.quantidade}
+
+Mensagem:
+${data.mensagem}`
+    );
+
+}
+
 carregarPedidos();
 
 </script>
-
 </body>
 
 </html>
