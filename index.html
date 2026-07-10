@@ -103,7 +103,7 @@ nav a:hover{
 
     overflow:hidden;
 
-    width:100%
+    width:100%;
 
     transition:.3s;
 
@@ -487,103 +487,6 @@ html{
 
 <main>
 
-
-<div class="produtos" id="produtos">
-
-<div class="card">
-
-<img src="https://cdn.awsli.com.br/600x450/2179/2179851/produto/246636956/notebook_dell_14-3468__5_-removebg-preview-ql7xuh6oi3.png" alt="Notebook">
-
-<h3>Notebook Dell Inspiron</h3>
-
-<p>Intel Core i5 • 16GB RAM • SSD 512GB</p>
-
-<span class="categoria">Categoria: Notebook</span>
-
-<h4>R$ 3.799,00</h4>
-
-<button class="btn-orcamento">Solicitar Orçamento</button>
-
-</div>
-
-<div class="card">
-
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTySZHfGZL57WpWr46jQhk9EHwCyzgbYjGzGURy9djFVw&s=10" alt="Mouse">
-
-<h3>Mouse Gamer RGB</h3>
-
-<p>7200 DPI com iluminação RGB.</p>
-
-<span class="categoria">Categoria: Acessórios</span>
-
-<h4>R$ 149,90</h4>
-
-<button class="btn-orcamento">Solicitar Orçamento</button>
-
-</div>
-
-<div class="card">
-
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaDgejResmDc5ysobCTFqCzzTGCIXmfy9vG3nBCfHj9w&s=10" alt="Teclado">
-
-<h3>Teclado Mecânico</h3>
-
-<p>Switch Blue RGB.</p>
-
-<span class="categoria">Categoria: Acessórios</span>
-
-<h4>R$ 289,90</h4>
-
-<button class="btn-orcamento">Solicitar Orçamento</button>
-
-</div>
-
-<div class="card">
-
-<img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQdsANVl9L8uwtWRwuPiVOlukHCHIdZI6RROQjI8LEbGe4fwki16z52My2tlmQ5bX77jw5H05Pu7WSLfeoaDubi2eRzXKyPCNYTv0qOFug&usqp=CAc" alt="Monitor">
-
-<h3>Monitor LG 24"</h3>
-
-<p>Full HD IPS.</p>
-
-<span class="categoria">Categoria: Monitor</span>
-
-<h4>R$ 899,00</h4>
-
-<button class="btn-orcamento">Solicitar Orçamento</button>
-</div>
-
-<div class="card">
-
-<img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRiOzCX-3nTYeZH2R5beYNjeIMDJJ5lAqWfwvYT9k2XdlxPZq4pMuxreo4hxcvUKWPCJKQmXjdloRKEeMVebu8pz887oj0IQVt5QLfCyb4yORZ-PhMiQg_A-EHh05XRzgKFkGR7Bw&usqp=CAc" alt="Headset">
-
-<h3>Headset Gamer</h3>
-
-<p>Som Surround 7.1.</p>
-
-<span class="categoria">Categoria: Áudio</span>
-
-<h4>R$ 329,00</h4>
-
-<button class="btn-orcamento">Solicitar Orçamento</button>
-
-</div>
-
-<div class="card">
-
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0OqddOKnhgyBcu94Zs5dzXZoKsp92FN4cZ45HjbhOLQ&s=10" alt="Impressora">
-
-<h3>Impressora Epson EcoTank</h3>
-
-<p>Multifuncional com tanque de tinta.</p>
-
-<span class="categoria">Categoria: Impressora</span>
-
-<h4>R$ 1.299,00</h4>
-
-<button class="btn-orcamento">Solicitar Orçamento</button>
-
-</div>
     
     <div class="produtos" id="listaProdutos"></div>
 
@@ -659,6 +562,10 @@ html{
 <p>© 2026 TechStore - Todos os direitos reservados.</p>
 
 </footer>
+    
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+<script src="supabase.js"></script>
 
 <script>
 const modal = document.getElementById("modal");
@@ -666,41 +573,51 @@ const fechar = document.querySelector(".fechar");
 const formulario = document.getElementById("formulario");
 const campoProduto = document.getElementById("produto");
 
-// Todos os botões dos produtos
-document.querySelectorAll(".btn-orcamento").forEach(botao => {
+//==============================
+// ABRIR MODAL
+//==============================
 
-    botao.addEventListener("click", () => {
+function configurarBotoesOrcamento(){
 
-        // Pega o nome do produto
-       const produto = botao.closest(".card").querySelector("h3").textContent;
+    document.querySelectorAll(".btn-orcamento").forEach(botao=>{
 
-        // Coloca no formulário
-        campoProduto.value = produto;
+        botao.onclick = function(){
 
-        // Abre o modal
-        modal.style.display = "flex";
+            const produto = this.closest(".card").querySelector("h3").textContent;
+
+            campoProduto.value = produto;
+
+            modal.style.display = "flex";
+
+        }
 
     });
 
-});
+}
 
-// Fechar pelo X
-fechar.addEventListener("click", () => {
+//==============================
+// FECHAR MODAL
+//==============================
+
+fechar.onclick = function(){
 
     modal.style.display = "none";
 
-});
+}
 
-// Fechar clicando fora
-window.addEventListener("click", (e)=>{
+window.onclick = function(e){
 
-    if(e.target === modal){
+    if(e.target == modal){
 
         modal.style.display = "none";
 
     }
 
-});
+}
+
+//==============================
+// ENVIAR PEDIDO
+//==============================
 
 formulario.addEventListener("submit", async function(e){
 
@@ -714,19 +631,20 @@ formulario.addEventListener("submit", async function(e){
     const mensagem = document.getElementById("mensagem").value;
 
     const { error } = await supabaseClient
-        .from("pedidos")
-        .insert([
-            {
-                nome: nome,
-                email: email,
-                telefone: telefone,
-                produto: produto,
-                quantidade: quantidade,
-                mensagem: mensagem
-            }
-        ]);
-    console.log(error);
-    
+
+    .from("pedidos")
+
+    .insert([{
+
+        nome,
+        email,
+        telefone,
+        produto,
+        quantidade,
+        mensagem
+
+    }]);
+
     if(error){
 
         alert(error.message);
@@ -741,7 +659,8 @@ formulario.addEventListener("submit", async function(e){
     modal.style.display = "none";
 
 });
-    //==============================
+
+//==============================
 // BOTÃO MINHA CONTA
 //==============================
 
@@ -750,36 +669,46 @@ const btnConta = document.getElementById("btnConta");
 if(localStorage.getItem("usuarioLogado") === "true"){
 
     btnConta.innerHTML = "👤 " + localStorage.getItem("nome");
+
     btnConta.href = "perfil.html";
 
 }else{
 
     btnConta.innerHTML = "👤 Minha Conta";
+
     btnConta.href = "login-opcao.html";
 
-
 }
-    //==============================
+
+//==============================
 // MENU MOBILE
 //==============================
 
 const menu = document.getElementById("menu");
 const menuMobile = document.getElementById("menuMobile");
 
-menuMobile.addEventListener("click", function(){
+menuMobile.onclick = function(){
 
     menu.classList.toggle("ativo");
 
-});
-    async function carregarProdutos(){
+}
+
+//==============================
+// CARREGAR PRODUTOS
+//==============================
+
+async function carregarProdutos(){
 
     const { data, error } = await supabaseClient
-        .from("produtos")
-        .select("*");
+
+    .from("produtos")
+
+    .select("*");
 
     if(error){
 
         console.log(error);
+
         return;
 
     }
@@ -794,22 +723,28 @@ menuMobile.addEventListener("click", function(){
 
         <div class="card">
 
-            <img src="${produto.imagem}">
+            <img src="${produto.imagem}" alt="${produto.nome}">
 
             <h3>${produto.nome}</h3>
 
             <p>${produto.descricao}</p>
 
             <span class="categoria">
-                ${produto.categoria}
+
+                Categoria: ${produto.categoria}
+
             </span>
 
             <h4>
-                R$ ${produto.preco}
+
+                R$ ${Number(produto.preco).toFixed(2)}
+
             </h4>
 
             <button class="btn-orcamento">
+
                 Solicitar Orçamento
+
             </button>
 
         </div>
@@ -818,11 +753,20 @@ menuMobile.addEventListener("click", function(){
 
     });
 
+    configurarBotoesOrcamento();
+
 }
 
-carregarProdutos();
+//==============================
+// INICIAR
+//==============================
+
+window.onload = function(){
+
+    carregarProdutos();
+
+}
+    
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase.js"></script>
 </body>
 </html>
