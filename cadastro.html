@@ -283,9 +283,9 @@ formulario.addEventListener("submit", async function(e){
     }
 console.log("Cheguei aqui");
 
-const { error } = await supabase
-  .from("usuarios")
-  .insert([
+const { error } = await supabaseClient
+.from("usuarios")
+.insert([
     {
       nome: nome,
       email: email,
