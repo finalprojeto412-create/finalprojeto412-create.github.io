@@ -584,6 +584,8 @@ html{
 <button class="btn-orcamento">Solicitar Orçamento</button>
 
 </div>
+    
+    <div class="produtos" id="listaProdutos"></div>
 
 </div>
 
@@ -769,6 +771,56 @@ menuMobile.addEventListener("click", function(){
     menu.classList.toggle("ativo");
 
 });
+    async function carregarProdutos(){
+
+    const { data, error } = await supabaseClient
+        .from("produtos")
+        .select("*");
+
+    if(error){
+
+        console.log(error);
+        return;
+
+    }
+
+    const lista = document.getElementById("listaProdutos");
+
+    lista.innerHTML = "";
+
+    data.forEach(produto=>{
+
+        lista.innerHTML += `
+
+        <div class="card">
+
+            <img src="${produto.imagem}">
+
+            <h3>${produto.nome}</h3>
+
+            <p>${produto.descricao}</p>
+
+            <span class="categoria">
+                ${produto.categoria}
+            </span>
+
+            <h4>
+                R$ ${produto.preco}
+            </h4>
+
+            <button class="btn-orcamento">
+                Solicitar Orçamento
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+carregarProdutos();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase.js"></script>
