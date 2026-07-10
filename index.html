@@ -24,24 +24,39 @@ body{
 /* HEADER */
 
 header{
+
     background:#ff6b00;
     color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-    flex-wrap:wrap;
-}
 
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px;
+
+    flex-wrap:wrap;
+
+}
 header h1{
     font-size:30px;
 }
 
+nav{
+
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+
+}
+
 nav a{
+
     color:white;
     text-decoration:none;
-    margin-left:20px;
+    margin-left:0;
     font-weight:bold;
+
 }
 
 nav a:hover{
@@ -87,6 +102,8 @@ nav a:hover{
     box-shadow:0 5px 15px rgba(0,0,0,.2);
 
     overflow:hidden;
+
+    width:100%
 
     transition:.3s;
 
@@ -143,7 +160,7 @@ nav a:hover{
 
 .card button{
 
-    width:90%;
+    width:calc(100% - 30px);
     margin:15px;
     padding:12px;
 
@@ -193,9 +210,9 @@ nav a:hover{
 
     background:white;
 
-    width:500px;
-
-    max-width:95%;
+    width:90%;
+    
+    max-width:500px;
 
     padding:30px;
 
@@ -231,6 +248,8 @@ form input,
 form textarea{
 
     padding:12px;
+
+    width:100%;
 
     margin-bottom:15px;
 
@@ -290,25 +309,49 @@ footer{
 
 /* RESPONSIVO */
 
-@media(max-width:768px){
+@media (max-width:768px){
 
-header{
+    header{
+        flex-direction:column;
+        text-align:center;
+        padding:15px;
+    }
 
-flex-direction:column;
+    .logo{
+        width:180px;
+        margin-bottom:15px;
+    }
 
-}
+    nav{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:12px;
+        margin-top:10px;
+    }
 
-nav{
+    nav a{
+        margin-left:0;
+        font-size:18px;
+    }
 
-margin-top:15px;
+    .produtos{
+        width:95%;
+        grid-template-columns:1fr;
+    }
 
-}
+    .card img{
+        height:220px;
+    }
 
-.banner h2{
+    .modal-content{
+        width:95%;
+        padding:20px;
+    }
 
-font-size:30px;
-
-}
+    h1{
+        font-size:24px;
+    }
 
 }
 .btn-banner{
@@ -330,10 +373,10 @@ font-size:30px;
     font-weight:bold;
 
 }
-    .logo{
+.logo{
 
     width:260px;
-
+    max-width:100%;
     height:auto;
 
 }
