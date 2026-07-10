@@ -396,6 +396,57 @@ html{
     margin-left:20px;
 
 }
+    /* BOTÃO MENU */
+
+.menu-mobile{
+
+    display:none;
+    font-size:35px;
+    cursor:pointer;
+    color:white;
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+    header{
+
+        justify-content:space-between;
+        padding:20px;
+
+    }
+
+    .menu-mobile{
+
+        display:block;
+
+    }
+
+    nav{
+
+        display:none;
+        width:100%;
+        flex-direction:column;
+        margin-top:20px;
+
+    }
+
+    nav.ativo{
+
+        display:flex;
+
+    }
+
+    nav a{
+
+        margin:10px 0;
+        text-align:center;
+
+    }
+
+}
 
 
 </style>
@@ -407,8 +458,12 @@ html{
 <header>
 
 <img src="logo.png" alt="TechStore" class="logo">
+    
+<div class="menu-mobile" id="menuMobile">
+    ☰
+</div>
 
-<nav>
+<nav id="menu">
 
 <a href="index.html">🏠 Início</a>
 
@@ -675,6 +730,18 @@ if(localStorage.getItem("usuarioLogado") === "true"){
 
 
 }
+    //==============================
+// MENU MOBILE
+//==============================
+
+const menu = document.getElementById("menu");
+const menuMobile = document.getElementById("menuMobile");
+
+menuMobile.addEventListener("click", function(){
+
+    menu.classList.toggle("ativo");
+
+});
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase.js"></script>
