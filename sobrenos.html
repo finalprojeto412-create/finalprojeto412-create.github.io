@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quem Somos</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+ 
+}
+
+@keyframes fundo{
+
+    0%{
+        background-position:left;
+    }
+
+    50%{
+        background-position:right;
+    }
+
+    100%{
+        background-position:left;
+    }
+
+}
+@keyframes fundo{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+}
+
+.container{
+    max-width:900px;
+    margin:60px auto;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+    color:#ff6b00;
+    margin-bottom:20px;
+}
+
+p{
+    text-align:center;
+    color:#555;
+    margin-bottom:40px;
+    line-height:1.6;
+}
+
+.menu{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.menu button{
+    background:#ff6b00;
+    color:#fff;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.menu button:hover{
+    background:#e65c00;
+}
+
+.conteudo{
+    display:none;
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.conteudo.ativo{
+    display:block;
+}
+
+.conteudo h2{
+    color:#ff6b00;
+    margin-bottom:15px;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>SOBRE NÓS</h1>
+
+<p>
+A <strong>TechStore</strong> oferece produtos de tecnologia com qualidade, segurança e preços competitivos.
+</p>
+
+<div class="menu">
+    <button onclick="mostrar('missao')">Missão</button>
+    <button onclick="mostrar('visao')">Visão</button>
+    <button onclick="mostrar('valores')">Valores</button>
+</div>
+
+<div id="missao" class="conteudo ativo">
+    <h2>🎯 Missão</h2>
+    <p>Nossa missão é conectar pessoas à tecnologia por meio de produtos de qualidade, preços justos e um atendimento que supera expectativas.</p>
+</div>
+
+<div id="visao" class="conteudo">
+    <h2>🚀 Visão</h2>
+    <p>Ser referência em inovação, confiança e satisfação dos clientes em todo o Brasil.</p>
+</div>
+
+<div id="valores" class="conteudo">
+    <h2>⭐ Valores</h2>
+    <p>Qualidade, transparência, compromisso, inovação, respeito ao cliente e melhoria contínua.</p>
+</div>
+
+
+<script>
+
+function mostrar(id){
+
+    const conteudos = document.querySelectorAll(".conteudo");
+
+    conteudos.forEach(c=>{
+        c.classList.remove("ativo");
+    });
+
+    document.getElementById(id).classList.add("ativo");
+
+}
+
+</script>
+
+</body>
+</html>
