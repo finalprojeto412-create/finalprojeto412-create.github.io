@@ -1,162 +1,564 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quem Somos</title>
+
+<title>Quem Somos | TechStore</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 <style>
+/* ===========================
+   RESET
+=========================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
- 
-}
 
-@keyframes fundo{
+    font-family:'Poppins',sans-serif;
 
-    0%{
-        background-position:left;
-    }
+    background:#0f0f0f;
 
-    50%{
-        background-position:right;
-    }
-
-    100%{
-        background-position:left;
-    }
-
-}
-@keyframes fundo{
-
-    0%{
-        background-position:0% 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-    }
-
-    100%{
-        background-position:0% 50%;
-    }
-
-}
-}
-
-.container{
-    max-width:900px;
-    margin:60px auto;
-    padding:20px;
-}
-
-h1{
-    text-align:center;
-    color:#ff6b00;
-    margin-bottom:20px;
-}
-
-p{
-    text-align:center;
-    color:#555;
-    margin-bottom:40px;
-    line-height:1.6;
-}
-
-.menu{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-    margin-bottom:25px;
-}
-
-.menu button{
-    background:#ff6b00;
     color:#fff;
-    border:none;
-    padding:12px 25px;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:16px;
-    transition:.3s;
+
+    line-height:1.7;
+
 }
 
-.menu button:hover{
-    background:#e65c00;
+/* ===========================
+   TÍTULOS
+=========================== */
+
+.titulo{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+.titulo h2{
+
+    font-size:42px;
+
+    color:#ff7b00;
+
+    margin-bottom:15px;
+
+}
+
+.linha{
+
+    width:90px;
+
+    height:5px;
+
+    background:#ff7b00;
+
+    margin:auto;
+
+    border-radius:50px;
+
+}
+
+/* ===========================
+   BANNER
+=========================== */
+
+.banner{
+
+    height:100vh;
+
+    background:url("https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600")
+    center center/cover no-repeat;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.banner::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.70);
+
+}
+
+.banner-overlay{
+
+    position:relative;
+
+    text-align:center;
+
+    max-width:900px;
+
+    padding:30px;
+
+}
+
+.banner h1{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+    color:#fff;
+
+}
+
+.banner p{
+
+    font-size:22px;
+
+    color:#ddd;
+
+    margin-bottom:40px;
+
+}
+
+.btn-banner{
+
+    display:inline-block;
+
+    background:#ff7b00;
+
+    color:#fff;
+
+    padding:16px 45px;
+
+    border-radius:40px;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    transition:.4s;
+
+}
+
+.btn-banner:hover{
+
+    background:#ff9500;
+
+    transform:translateY(-5px);
+
+}
+
+/* ===========================
+   EMPRESA
+=========================== */
+
+.empresa{
+
+    padding:100px 8%;
+
+}
+
+.empresa-container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:60px;
+
+    flex-wrap:wrap;
+
+}
+
+.empresa-texto{
+
+    flex:1;
+
+}
+
+.empresa-texto h3{
+
+    font-size:35px;
+
+    color:#ff7b00;
+
+    margin-bottom:25px;
+
+}
+
+.empresa-texto p{
+
+    margin-bottom:20px;
+
+    color:#ddd;
+
+    font-size:18px;
+
+    text-align:justify;
+
+}
+
+.empresa-imagem{
+
+    flex:1;
+
+    text-align:center;
+
+}
+
+.empresa-imagem img{
+
+    width:100%;
+
+    max-width:550px;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 40px rgba(255,123,0,.35);
+
+    transition:.5s;
+
+}
+
+.empresa-imagem img:hover{
+
+    transform:scale(1.03);
+
+}
+
+/* ===========================
+   MISSÃO VISÃO VALORES
+=========================== */
+
+.mvv{
+
+    padding:100px 8%;
+
+    background:#181818;
+
+}
+
+.menu-mvv{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:40px;
+
+}
+
+.menu-mvv button{
+
+    background:#ff7b00;
+
+    border:none;
+
+    color:white;
+
+    padding:14px 35px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.menu-mvv button:hover{
+
+    background:#ff9500;
+
+    transform:translateY(-3px);
+
 }
 
 .conteudo{
+
     display:none;
-    background:#fff;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+    max-width:900px;
+
+    margin:auto;
+
+    background:#222;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 0 30px rgba(0,0,0,.30);
+
 }
 
 .conteudo.ativo{
+
     display:block;
+
 }
 
-.conteudo h2{
-    color:#ff6b00;
-    margin-bottom:15px;
+.conteudo h3{
+
+    color:#ff7b00;
+
+    font-size:30px;
+
+    margin-bottom:20px;
+
 }
 
+.conteudo p{
+
+    color:#ddd;
+
+    font-size:18px;
+
+}
+
+.conteudo ul{
+
+    list-style:none;
+
+}
+
+.conteudo li{
+
+    margin:15px 0;
+
+    font-size:18px;
+
+    color:#ddd;
+
+}
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+
+@media(max-width:900px){
+
+.banner h1{
+
+font-size:42px;
+
+}
+
+.banner p{
+
+font-size:18px;
+
+}
+
+.empresa-container{
+
+flex-direction:column;
+
+}
+
+.titulo h2{
+
+font-size:34px;
+
+}
+
+}
 </style>
 
 </head>
-<body>
 
-<h1>SOBRE NÓS</h1>
+<body>
+<header class="banner">
+
+<div class="banner-overlay">
+
+<h1>Conheça a TechStore</h1>
 
 <p>
-A <strong>TechStore</strong> oferece produtos de tecnologia com qualidade, segurança e preços competitivos.
+Tecnologia, inovação e confiança para transformar o seu dia a dia.
 </p>
 
-<div class="menu">
-    <button onclick="mostrar('missao')">Missão</button>
-    <button onclick="mostrar('visao')">Visão</button>
-    <button onclick="mostrar('valores')">Valores</button>
+<a href="#empresa" class="btn-banner">
+
+Conheça nossa história
+
+</a>
+
 </div>
 
+</header>
+<section id="empresa" class="empresa">
+
+    <div class="titulo">
+
+        <h2>Quem Somos</h2>
+
+        <div class="linha"></div>
+
+    </div>
+
+    <div class="empresa-container">
+
+        <div class="empresa-texto">
+
+            <h3>Nossa História</h3>
+
+            <p>
+                A <strong>TechStore</strong> é uma empresa fictícia desenvolvida como projeto acadêmico pelos alunos do Curso Técnico em Informática da Escola Estadual Professor Estevão Araújo, localizada no município de Jacinto, Minas Gerais. O projeto surgiu em 2026 durante as atividades práticas do curso, com o objetivo de aplicar os conhecimentos adquiridos em programação, desenvolvimento web, banco de dados, design de interfaces e gestão de projetos.
+            </p>
+
+            <p>
+                A proposta nasceu da ideia de criar uma loja virtual moderna especializada em equipamentos de informática, oferecendo uma experiência semelhante às grandes empresas do setor. Desde o início, os estudantes buscaram desenvolver um sistema completo, pensando não apenas na aparência do site, mas também na funcionalidade, segurança e facilidade de utilização pelos usuários.
+            </p>
+
+            <p>
+                Durante o desenvolvimento do projeto, cada integrante da equipe ficou responsável por uma área específica, como programação em HTML, CSS e JavaScript, modelagem do banco de dados, criação da identidade visual, elaboração das páginas do sistema e testes de funcionamento. Essa divisão permitiu que todos colocassem em prática os conhecimentos aprendidos em sala de aula.
+            </p>
+
+            <p>
+                A TechStore foi planejada para comercializar computadores, notebooks, monitores, periféricos, componentes, acessórios gamers e diversos produtos voltados ao universo da tecnologia. Além disso, o projeto contempla funcionalidades como pesquisa de produtos, cadastro de clientes, carrinho de compras, área administrativa, promoções e atendimento ao consumidor.
+            </p>
+
+            <p>
+                Um dos principais objetivos da equipe foi criar um ambiente virtual intuitivo, responsivo e moderno, proporcionando uma navegação agradável tanto em computadores quanto em smartphones e tablets. Para isso, foram utilizados conceitos atuais de desenvolvimento front-end, buscando oferecer uma interface limpa, organizada e de fácil utilização.
+            </p>
+
+            <p>
+                Embora seja um projeto fictício, a TechStore representa a dedicação, criatividade e o comprometimento dos alunos em transformar teoria em prática. Cada linha de código desenvolvida demonstra o aprendizado adquirido ao longo do curso e reforça a importância da tecnologia como ferramenta de inovação e desenvolvimento profissional.
+            </p>
+
+            <p>
+                A criação deste projeto também fortaleceu habilidades como trabalho em equipe, resolução de problemas, planejamento, comunicação e organização, competências fundamentais para o mercado de trabalho na área de Tecnologia da Informação. A experiência proporcionou aos estudantes uma visão mais ampla sobre o processo completo de desenvolvimento de um sistema.
+            </p>
+
+            <p>
+                Atualmente, a TechStore simboliza o resultado da união entre conhecimento, criatividade e inovação, servindo como demonstração prática das capacidades técnicas desenvolvidas pelos alunos do Curso Técnico em Informática da Escola Estadual Professor Estevão Araújo. Mais do que um simples site, o projeto representa um importante marco na formação acadêmica da equipe e evidencia como a educação pode transformar ideias em soluções tecnológicas criativas.
+            </p>
+
+        </div>
+
+        <div class="empresa-imagem">
+
+            <img src="meninas.png" alt="História da TechStore">
+
+        </div>
+
+    </div>
+
+</section>
+<section class="mvv">
+
+<div class="titulo">
+
+<h2>Nossos Princípios</h2>
+
+<div class="linha"></div>
+
+</div>
+<div class="menu-mvv">
+
+<button onclick="mostrar('missao')">
+
+Missão
+
+</button>
+
+<button onclick="mostrar('visao')">
+
+Visão
+
+</button>
+
+<button onclick="mostrar('valores')">
+
+Valores
+
+</button>
+
+</div>
 <div id="missao" class="conteudo ativo">
-    <h2>🎯 Missão</h2>
-    <p>Nossa missão é conectar pessoas à tecnologia por meio de produtos de qualidade, preços justos e um atendimento que supera expectativas.</p>
+
+Nossa missão é oferecer soluções completas em tecnologia por meio de produtos
+        de informática de alta qualidade, garantindo confiança, inovação e excelência
+        em cada atendimento. Buscamos facilitar o acesso à tecnologia para pessoas e
+        empresas, proporcionando uma experiência de compra segura, eficiente e com
+        suporte especializado. Trabalhamos diariamente para superar as expectativas
+        dos nossos clientes, oferecendo produtos modernos, preços competitivos e um
+        atendimento que gera satisfação e fidelização.
+
 </div>
 
 <div id="visao" class="conteudo">
-    <h2>🚀 Visão</h2>
-    <p>Ser referência em inovação, confiança e satisfação dos clientes em todo o Brasil.</p>
+ Ser reconhecida como uma das principais lojas de tecnologia do Brasil,
+        tornando-se referência em inovação, qualidade e atendimento ao cliente.
+        Nossa visão é crescer de forma sustentável, acompanhando as constantes
+        evoluções do mercado tecnológico e oferecendo sempre as melhores soluções
+        para consumidores, empresas e profissionais da área de informática.
+        Queremos construir uma marca sólida, moderna e admirada pela confiança
+        conquistada ao longo dos anos.
+
 </div>
 
 <div id="valores" class="conteudo">
-    <h2>⭐ Valores</h2>
-    <p>Qualidade, transparência, compromisso, inovação, respeito ao cliente e melhoria contínua.</p>
+
+A TechStore fundamenta suas atividades na ética, honestidade, transparência
+        e respeito aos clientes, colaboradores e parceiros. Valorizamos a inovação,
+        a qualidade dos produtos, o compromisso com a excelência e a responsabilidade
+        em todas as nossas ações. Acreditamos que um atendimento humanizado, aliado
+        à melhoria contínua e ao trabalho em equipe, é essencial para construir
+        relações duradouras e oferecer sempre a melhor experiência aos nossos clientes.
+
 </div>
-
-
+</section>
 <script>
 
 function mostrar(id){
 
-    const conteudos = document.querySelectorAll(".conteudo");
+const conteudos=document.querySelectorAll(".conteudo");
 
-    conteudos.forEach(c=>{
-        c.classList.remove("ativo");
-    });
+conteudos.forEach(function(item){
 
-    document.getElementById(id).classList.add("ativo");
+item.classList.remove("ativo");
+
+});
+
+document.getElementById(id).classList.add("ativo");
 
 }
 
 </script>
-
 </body>
+
 </html>
